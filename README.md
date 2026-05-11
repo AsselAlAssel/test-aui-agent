@@ -1,65 +1,88 @@
-# test-aui-agent
+# test-aui-agent — Node.js Express API
 
-A Node.js Express API for the `test-aui-agent` repository.
+This is the Express API for the **test-aui-agent** repository, generated on the `feature/ai-generated` branch.
 
 ## Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [npm](https://www.npmjs.com/)
+- Node.js >= 14.x
+- npm
 
 ### Installation
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-org/test-aui-agent.git
-   cd test-aui-agent
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 ### Running the Server
 
 **Production:**
-
 ```bash
 npm start
 ```
 
 **Development (with auto-reload):**
-
 ```bash
 npm run dev
 ```
 
-The server will start on port `3000` by default. You can override this by setting the `PORT` environment variable.
+The server will start on `http://localhost:3000` by default.
 
 ## API Endpoints
 
-### GET /health
-
-Returns the health status of the API.
+### GET `/`
+Returns a welcome message.
 
 **Response:**
-
 ```json
 {
-  "status": "ok"
+  "message": "Welcome to the test-aui-agent API!",
+  "version": "1.0.0"
 }
 ```
 
-**Example:**
+---
 
-```bash
-curl http://localhost:3000/health
+### GET `/health`
+Returns the health status of the API.
+
+**Response:**
+```json
+{
+  "status": "ok",
+  "uptime": 12.345
+}
 ```
+
+---
+
+### GET `/time`
+Returns the current server time as an ISO 8601 string.
+
+**Response:**
+```json
+{
+  "currentTime": "2024-01-15T10:30:00.000Z"
+}
+```
+
+---
+
+## Project Structure
+
+```
+test-aui-agent/
+├── src/
+│   └── index.js      # Main application entry point
+├── package.json
+└── README.md
+```
+
+## Branch
+
+This code lives on the `feature/ai-generated` branch of the **test-aui-agent** repository.
 
 ## License
 
-ISC
+MIT
