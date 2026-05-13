@@ -17,4 +17,14 @@ app.use((req, _res, next) => {
 
 app.get('/', (_req, res) => {
   res.json({
-    message: 'Welcome to the test-aui-agent API!
+    message: 'Welcome to the test-aui-agent API!',
+  });
+});
+
+app.get('/health', (_req, res) => {
+  res.json({ status: 'ok' });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
