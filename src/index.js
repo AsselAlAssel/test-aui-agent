@@ -53,7 +53,6 @@ app.use((err, _req, res, _next) => {
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`[test-aui-agent] Server is running on http://localhost:${PORT}`);
-    console.log(`[test-aui-agent] Branch: feature/ai-generated`);
   });
 }
 
