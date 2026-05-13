@@ -15,10 +15,6 @@ app.use((req, _res, next) => {
   next();
 });
 
-/**
- * GET /
- * Welcome endpoint
- */
 app.get('/', (_req, res) => {
   res.json({
     message: 'Welcome to the test-aui-agent API!',
@@ -26,10 +22,6 @@ app.get('/', (_req, res) => {
   });
 });
 
-/**
- * GET /health
- * Health check endpoint
- */
 app.get('/health', (_req, res) => {
   res.json({
     status: 'ok',
@@ -37,17 +29,12 @@ app.get('/health', (_req, res) => {
   });
 });
 
-/**
- * GET /time
- * Returns the current server time as an ISO 8601 string
- */
 app.get('/time', (_req, res) => {
   res.json({
     currentTime: new Date().toISOString(),
   });
 });
 
-// 404 handler
 app.use((_req, res) => {
   res.status(404).json({
     error: 'Not Found',
@@ -55,8 +42,6 @@ app.use((_req, res) => {
   });
 });
 
-// Global error handler
-// eslint-disable-next-line no-unused-vars
 app.use((err, _req, res, _next) => {
   console.error('Unhandled error:', err);
   res.status(500).json({
@@ -65,10 +50,11 @@ app.use((err, _req, res, _next) => {
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`[test-aui-agent] Server is running on http://localhost:${PORT}`);
-  console.log(`[test-aui-agent] Branch: feature/ai-generated`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`[test-aui-agent] Server is running on http://localhost:${PORT}`);
+    console.log(`[test-aui-agent] Branch: feature/ai-generated`);
+  });
+}
 
 module.exports = app;
