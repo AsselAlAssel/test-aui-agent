@@ -25,6 +25,14 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.listen(PORT, () => {
+app.use((err, _req, res, _next) => {
+  console.error(err);
+  res.status(500).json({
+    status: 'error',
+    message: 'Internal Server Error',
+  });
+});
+
+app.listen( PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
